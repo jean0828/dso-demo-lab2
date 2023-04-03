@@ -24,24 +24,24 @@ spec:
         - mountPath: /tmp/trivycache/
           name: trivycache
     - name: kaniko
-	  image: gcr.io/kaniko-project/executor:v1.6.0-debug
-	  imagePullPolicy: Always
-	  command: 
-	   - sleep
-	   args:
-	    - 99d
-	   volumeMounts:
-	    - name: jenkins-docker-cfg
-	      mountPath: /kaniko/.docker
+      image: gcr.io/kaniko-project/executor:v1.6.0-debug
+      imagePullPolicy: Always
+      command: 
+       - sleep
+       args:
+        - 99d
+       volumeMounts:
+        - name: jenkins-docker-cfg
+        mountPath: /kaniko/.docker
     - name: trufflehog
       image: rmkanda/trufflehog
       command:
-        - cat
+       - cat
       tty: true
     - name: licensefinder
       image: licensefinder/license_finder
       command:
-        - cat
+       - cat
       tty: true
   volumes:
     - name: m2
